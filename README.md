@@ -12,11 +12,16 @@ This is a work-in-progress implementation of the [L99 Lisp problem set](http://w
 To keep true to the spirit of the challenge, only a limited subset of Lisp functions are used to implement the problems themselves (basically those which would be available in most implementations of Lisp). These include:
 
 - add1
+- and
 - car/cdr (and variants like cadr)
+- cond
 - cons
 - equal?
+- if
 - list
 - list?
+- or
+- not
 - null
 - null?
 - sub1
