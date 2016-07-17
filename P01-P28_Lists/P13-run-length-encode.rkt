@@ -13,12 +13,14 @@
 
 ; Builds a run-length encoded version of a list.
 ; e.g., (run-length-encode '(a b b c c c)) -> '((1 a) (2 b) (3 c))
-(define (run-length-encode lst)
+(define/contract (run-length-encode lst)
+  (-> list? list?)
   (run-length-encode-internal lst (λ (count item) (list count item))))
 
 ; Builds a modified run-length encoded version of a list.
 ; e.g., (run-length-encode '(a b b c c c)) -> '(a (2 b) (3 c))
-(define (run-length-encode-modified lst)
+(define/contract (run-length-encode-modified lst)
+  (-> list? list?)
   (run-length-encode-internal lst (λ (count item)
                                     (if (= count 1)
                                         item
