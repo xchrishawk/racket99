@@ -25,7 +25,7 @@
   (-> list? list)
   (cond
     [(null? lst) null]
-    [(list? (car lst)) (append (flatten-list (car lst)) (flatten-list (cdr lst)))]
+    [(list? (car lst)) (append-list (flatten-list (car lst)) (flatten-list (cdr lst)))]
     [else (cons (car lst) (flatten-list (cdr lst)))]))
 
 ; -- Unit Tests --
