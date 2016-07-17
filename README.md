@@ -18,6 +18,7 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 - cons
 - equal?
 - if
+- let/let*
 - list
 - list?
 - or
