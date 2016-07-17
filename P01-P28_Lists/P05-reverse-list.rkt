@@ -23,9 +23,13 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "reverse-list"
-    (check-equal? (reverse-list null) null)
-    (check-equal? (reverse-list '(a)) '(a))
-    (check-equal? (reverse-list '(1 2 3 4 5)) '(5 4 3 2 1)))
+    (define (test input expected-output)
+      (check-equal? (reverse-list input) expected-output))
+    (test null null)
+    (test '(a) '(a))
+    (test '(1 2 3 4 5) '(5 4 3 2 1)))
+
   (test-case "reverse-list contract"
     (check-exn exn:fail:contract? (λ () (reverse-list 3.14)))))

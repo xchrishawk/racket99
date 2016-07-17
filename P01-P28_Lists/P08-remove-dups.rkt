@@ -31,11 +31,15 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "remove-dups"
-    (check-equal? (remove-dups null) null)
-    (check-equal? (remove-dups '(a)) '(a))
-    (check-equal? (remove-dups '(a a a)) '(a))
-    (check-equal? (remove-dups '(a a b c c d)) '(a b c d))
-    (check-equal? (remove-dups '(a b b c d d)) '(a b c d)))
+    (define (test input expected)
+      (check-equal? (remove-dups input) expected))
+    (test null null)
+    (test '(a) '(a))
+    (test '(a a a) '(a))
+    (test '(a a b c c d) '(a b c d))
+    (test '(a b b c d d) '(a b c d)))
+
   (test-case "remove-dups contract"
     (check-exn exn:fail:contract? (λ () (remove-dups 4)))))

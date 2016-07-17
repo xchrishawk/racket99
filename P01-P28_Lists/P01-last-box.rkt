@@ -23,9 +23,13 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "last-box"
-    (check-equal? (last-box null) null)
-    (check-equal? (last-box '(1)) '(1))
-    (check-equal? (last-box '(1 2 3)) '(3)))
+    (define (test input expected-output)
+      (check-equal? (last-box input) expected-output))
+    (test null null)
+    (test '(1) '(1))
+    (test '(1 2 3) '(3)))
+
   (test-case "last-box contract"
     (check-exn exn:fail:contract? (λ () (last-box 1)))))

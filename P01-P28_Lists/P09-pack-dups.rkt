@@ -42,11 +42,15 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "pack-dups"
-    (check-equal? (pack-dups null) null)
-    (check-equal? (pack-dups '(1)) '((1)))
-    (check-equal? (pack-dups '(1 1 1)) '((1 1 1)))
-    (check-equal? (pack-dups '(1 2 2 3 3 3)) '((1) (2 2) (3 3 3)))
-    (check-equal? (pack-dups '(1 1 1 2 2 3)) '((1 1 1) (2 2) (3))))
+    (define (test input expected)
+      (check-equal? (pack-dups input) expected))
+    (test null null)
+    (test '(1) '((1)))
+    (test '(1 1 1) '((1 1 1)))
+    (test '(1 2 2 3 3 3) '((1) (2 2) (3 3 3)))
+    (test '(1 1 1 2 2 3) '((1 1 1) (2 2) (3))))
+
   (test-case "pack-dups contract"
     (check-exn exn:fail:contract? (λ () (pack-dups 14)))))

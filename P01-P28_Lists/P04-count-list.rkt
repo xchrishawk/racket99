@@ -23,9 +23,13 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "count-list"
-    (check-equal? (count-list null) 0)
-    (check-equal? (count-list '(#t)) 1)
-    (check-equal? (count-list '(#\a #\b #\c)) 3))
+    (define (test input expected-output)
+      (check-equal? (count-list input) expected-output))
+    (test null 0)
+    (test '(#t) 1)
+    (test '(#\a #\b #\c) 3))
+
   (test-case "count-list contract"
     (check-exn exn:fail:contract? (λ () (count-list #f)))))

@@ -35,21 +35,31 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "lists-equal?"
-    (check-true (lists-equal? null null))
-    (check-false (lists-equal? null '(a)))
-    (check-true (lists-equal? '(a) '(a)))
-    (check-false (lists-equal? '(a) '(b)))
-    (check-true (lists-equal? '(a b c) '(a b c)))
-    (check-false (lists-equal? '(a b c) '(a b d))))
+    (define (test a b expected)
+      (check-equal? (lists-equal? a b) expected))
+    (test null null #t)
+    (test null '(a) #f)
+    (test '(a) '(a) #t)
+    (test '(a) '(b) #f)
+    (test '(a b c) '(a b c) #t)
+    (test '(a b c) '(a b d) #f))
+
   (test-case "lists-equal? contract"
-    (check-exn exn:fail:contract? (λ () (lists-equal? #f null)))
-    (check-exn exn:fail:contract? (λ () (lists-equal? null #f))))
+    (define (test-fail a b)
+      (check-exn exn:fail:contract? (λ () (lists-equal? a b))))
+    (test-fail #f null)
+    (test-fail null #f))
+
   (test-case "is-palindrome?"
-    (check-true (is-palindrome? null))
-    (check-true (is-palindrome? '(1)))
-    (check-false (is-palindrome? '(1 2)))
-    (check-true (is-palindrome? '(1 2 3 2 1)))
-    (check-false (is-palindrome? '(1 2 3 2 2))))
+    (define (test input expected)
+      (check-equal? (is-palindrome? input) expected))
+    (test null #t)
+    (test '(1) #t)
+    (test '(1 2) #f)
+    (test '(1 2 3 2 1) #t)
+    (test '(1 2 3 2 2) #f))
+
   (test-case "is-palindrome? contract"
     (check-exn exn:fail:contract? (λ () (is-palindrome? #\a)))))

@@ -31,6 +31,7 @@
 
 (module+ test
   (require rackunit)
+
   (test-case "run-length-encode-packed"
     (define (test input expected-output)
       (check-equal? (run-length-encode-packed input) expected-output))
@@ -39,5 +40,6 @@
     (test '(a b c) '((1 a) (1 b) (1 c)))
     (test '(a a a b b c) '((3 a) (2 b) (1 c)))
     (test '(a b b c c c) '((1 a) (2 b) (3 c))))
+
   (test-case "run-length-encode-packed contract"
     (check-exn exn:fail:contract? (λ () (run-length-encode-packed #f)))))
