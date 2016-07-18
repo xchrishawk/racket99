@@ -11,6 +11,7 @@ This is a work-in-progress implementation of the [L99 Lisp problem set](http://w
 
 To keep true to the spirit of the challenge, only a limited subset of Lisp functions are used to implement the problems themselves (basically those which would be available in most implementations of Lisp). These include:
 
+- +, -, *, /, =, <, >, etc.
 - add1
 - and
 - car/cdr (and variants like cadr)
@@ -21,10 +22,11 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 - let/let*
 - list
 - list?
-- or
+- modulo
 - not
 - null
 - null?
+- or
 - sub1
 - values
 
