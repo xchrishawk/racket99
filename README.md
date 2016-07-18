@@ -26,5 +26,6 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 - null
 - null?
 - sub1
+- values
 
 Higher-level functions are fair game for unit tests, etc. In addition, solutions to previous problems can be used to solve later problems.
