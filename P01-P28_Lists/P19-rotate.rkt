@@ -4,12 +4,6 @@
 ; P19-rotate.rkt
 ; Chris Vig (chris@invictus.so)
 
-; -- Requires --
-
-(require "P04-count-list.rkt")
-(require "P07-flatten-list.rkt")
-(require "P17-split.rkt")
-
 ; -- Provides --
 
 (provide rotate)
@@ -22,9 +16,9 @@
   (-> list? exact-integer? list?)
   (if (zero? n)
       lst
-      (let*-values ([(n) (modulo n (count-list lst))]
-                    [(head tail) (split lst n)])
-        (append-list tail head))))
+      (let*-values ([(n) (modulo n (length lst))]
+                    [(head tail) (split-at lst n)])
+        (append tail head))))
 
 ; -- Unit Tests --
 

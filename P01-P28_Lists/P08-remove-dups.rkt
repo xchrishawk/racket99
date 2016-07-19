@@ -4,10 +4,6 @@
 ; P08-remove-dups.rkt
 ; Chris Vig (chris@invictus.so)
 
-; -- Requires --
-
-(require "P05-reverse-list.rkt")
-
 ; -- Provides --
 
 (provide remove-dups)
@@ -25,7 +21,7 @@
                                   (not (equal? (car in) (car out))))
                               (cons (car in) out)
                               out))))
-  (reverse-list (iterate lst null)))
+  (reverse (iterate lst null)))
 
 ; -- Unit Tests --
 

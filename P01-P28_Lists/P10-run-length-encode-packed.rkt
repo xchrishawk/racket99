@@ -6,7 +6,6 @@
 
 ; -- Requires --
 
-(require "P04-count-list.rkt")
 (require "P09-pack-dups.rkt")
 
 ; -- Provides --
@@ -24,7 +23,7 @@
         null
         (let* ([sublist (car lst)]
                [item (car sublist)]
-               [count (count-list sublist)])
+               [count (length sublist)])
           (cons (list count item) (iterate (cdr lst)))))))
 
 ; -- Unit Tests --

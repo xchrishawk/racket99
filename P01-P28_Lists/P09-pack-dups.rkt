@@ -4,10 +4,6 @@
 ; P09-pack-dups.rkt
 ; Chris Vig (chris@invictus.so)
 
-; -- Requires --
-
-(require "P05-reverse-list.rkt")
-
 ; -- Provides --
 
 (provide pack-dups)
@@ -36,7 +32,7 @@
 
   (if (null? lst)
       null
-      (reverse-list (iterate lst null null))))
+      (reverse (iterate lst null null))))
 
 ; -- Unit Tests --
 
