@@ -33,6 +33,7 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 In addition, if an implementation for a function has been given in a previous solution, it's OK to use the built-in version for later problems. These functions include:
 
 - `append` (implemented in **P07-flatten-list.rkt** as `append-list`)
+- `gcd` (implemented in **P32-greatest-common-divisor.rkt** as `greatest-common-divisor`)
 - `length` (implemented in **P04-count-list.rkt** as `count-list`)
 - `list-ref` (implemented in **P03-element-at.rkt** as `element-at`)
 - `reverse` (implemented in **P04-reverse-list.rkt** as `reverse-list`)
