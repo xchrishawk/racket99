@@ -19,6 +19,7 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 - `cons`
 - `equal?`
 - `if`
+- `inexact->exact`
 - `let`/`let*`
 - `list`
 - `list?`
@@ -27,7 +28,10 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 - `null`
 - `null?`
 - `or`
+- `remainder`
+- `sqrt`
 - `sub1`
+- `truncate`
 - `values`
 
 In addition, if an implementation for a function has been given in a previous solution, it's OK to use the built-in version for later problems. These functions include:
