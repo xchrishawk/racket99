@@ -23,6 +23,7 @@ To keep true to the spirit of the challenge, only a limited subset of Lisp funct
 - `let`/`let*`
 - `list`
 - `list?`
+- `map`
 - `modulo`
 - `not`
 - `null`
